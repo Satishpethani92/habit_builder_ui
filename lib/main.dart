@@ -18,7 +18,25 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        primaryColor: Colors.white,
+        brightness: Brightness.light,
+        appBarTheme: AppBarTheme(
+          color: Colors.transparent,
+          titleTextStyle: const TextStyle(color: Colors.black),
+        ),
+        primarySwatch: Colors.blue,
+      ),
+      darkTheme: ThemeData(
+        // fontFamily: 'Helvetica',
+        brightness: Brightness.dark,
+        appBarTheme: const AppBarTheme(
+          color: Colors.black,
+          titleTextStyle: TextStyle(color: Colors.black),
+        ),
+      ),
       // darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.splashScreen,
