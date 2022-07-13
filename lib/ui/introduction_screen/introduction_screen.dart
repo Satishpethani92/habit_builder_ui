@@ -80,7 +80,7 @@ class _IntroductionScreenViewState extends State<IntroductionScreenView> {
                         child: SmoothPageIndicator(
                           controller: pageController,
                           count: 4,
-                          effect: const ExpandingDotsEffect(
+                          effect: const ScrollingDotsEffect(
                             activeDotColor: Color(0xFF573353),
                             dotColor: Color(0xFFF9B566),
                             dotHeight: 10,

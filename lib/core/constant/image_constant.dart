@@ -7,4 +7,7 @@ class ImageConstant {
   static const String logInBackGround = 'assets/images/login_back_ground.png';
   static const String signupLogo = 'assets/images/sign_up_logo.png';
   static const String resetPasswordImage = 'assets/images/reset_password.png';
+  //home
+  static const String homeTrackingBackGround = 'assets/images/home_bottom.png';
+  static const String homePost = 'assets/images/home_post.png';
 }

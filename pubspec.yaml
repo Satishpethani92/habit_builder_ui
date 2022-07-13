@@ -36,8 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   get_it: ^7.2.0
   provider: ^6.0.3
-  introduction_screen: ^3.0.2
   smooth_page_indicator: ^1.0.0+2
+  curved_nav_bar: ^0.0.2
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +65,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icon/
+    - assets/bottom_navigation_icon/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

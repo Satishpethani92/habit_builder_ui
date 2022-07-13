@@ -59,8 +59,8 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
               Column(
                 children: [
                   Container(
-                    margin: const EdgeInsets.only(top: 285, right: 20, left: 20),
-                    child: const Text("WELCOME TO MONUMENTAL HABIT",
+                    margin: const EdgeInsets.only(top: 308, right: 25, left: 25),
+                    child: const Text("WELCOME TO MONUMENTAL HABITS",
                         style: TextStyleConstant.loginText,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -92,10 +92,10 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 27),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.031),
                   Container(
                     width: double.infinity,
-                    height: 322,
+                    height: MediaQuery.of(context).size.height * 0.39,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(28),
                       color: Colors.white,
@@ -147,8 +147,10 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                         customBtn(
                             margin: const EdgeInsets.only(left: 15, right: 15, top: 25),
                             text: 'Login',
-                            onPressed: () {}),
-                        const SizedBox(height: 13),
+                            onPressed: () {
+                              Navigator.pushNamedAndRemoveUntil(context, Routes.homeBottom, (route) => false);
+                            }),
+                        SizedBox(height: MediaQuery.of(context).size.height * 0.028),
                         InkWell(
                           onTap: () {
                             Navigator.pushNamed(context, Routes.resetPasswordScreen);
