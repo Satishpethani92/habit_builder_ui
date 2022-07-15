@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_builder_ui/core/routing/routes.dart';
-import 'package:habit_builder_ui/ui/home_all_screen/home_tracking_habits.dart';
+import 'package:habit_builder_ui/ui/home_all_screen/home/new_habits_screen/home_new_habits.dart';
+import 'package:habit_builder_ui/ui/home_all_screen/home/home_tracking_habits.dart';
 import 'package:habit_builder_ui/ui/home_all_screen/home_bottom.dart';
 import 'package:habit_builder_ui/ui/introduction_screen/introduction_screen.dart';
 import 'package:habit_builder_ui/ui/login_screen/login_screen.dart';
@@ -26,6 +27,8 @@ class PageRouter {
         return MaterialPageRoute(builder: (context) => const HomeBottom());
       case Routes.homeTrackingHabits:
         return MaterialPageRoute(builder: (context) => const HomeTrackingHabits());
+      case Routes.homeNewHabits:
+        return MaterialPageRoute(builder: (context) => const HomeNewHabits());
       default:
         return MaterialPageRoute(builder: (context) {
           return const Scaffold(

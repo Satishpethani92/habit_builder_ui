@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-customTextField({
-  bool? prefixIcon,
-  TextStyle? style,
-  GestureTapCallback? suffixTap,
-  bool obscureText = true,
-  Widget? iconBtn,
-  Widget? prefix,
-  Color? color,
-  EdgeInsetsGeometry? margin,
-  EdgeInsetsGeometry? padding,
-}) {
+customTextField(
+    {bool? prefixIcon,
+    TextStyle? style,
+    GestureTapCallback? suffixTap,
+    bool obscureText = true,
+    Widget? iconBtn,
+    Widget? prefix,
+    Color? color,
+    EdgeInsetsGeometry? margin,
+    EdgeInsetsGeometry? padding,
+    String? hintText,
+    TextStyle? hintStyle}) {
   return Container(
     padding: padding,
     margin: margin,
@@ -26,6 +27,8 @@ customTextField({
         cursorColor: const Color(0xFF573353),
         cursorHeight: 23,
         decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: hintStyle,
           border: InputBorder.none,
           suffixIcon: iconBtn,
           prefixIcon: prefix,

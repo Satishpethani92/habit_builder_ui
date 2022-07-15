@@ -24,4 +24,8 @@ class TextStyleConstant {
   static const TextStyle homePostText = TextStyle(fontSize: 15, color: Color(0xFF573353), fontWeight: FontWeight.w800);
   static const TextStyle homePostTextD = TextStyle(fontSize: 14, color: Color(0xFF573353), fontWeight: FontWeight.w400);
   static const TextStyle homeFourRow = TextStyle(fontSize: 16, color: Color(0xFF573353), fontWeight: FontWeight.w600);
+  static const TextStyle newHabitContainer =
+      TextStyle(fontSize: 20, color: Color(0xFF573353), fontWeight: FontWeight.w800);
+  static const TextStyle newHabitContainerD =
+      TextStyle(fontSize: 14, color: Color(0xFF573353), fontWeight: FontWeight.w300);
 }

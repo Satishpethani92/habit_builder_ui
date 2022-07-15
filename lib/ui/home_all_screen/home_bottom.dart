@@ -1,25 +1,58 @@
-import 'package:curved_nav_bar/flutter_curved_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:habit_builder_ui/core/constant/color_constant.dart';
 import 'package:habit_builder_ui/core/constant/icon_constant.dart';
-import 'package:habit_builder_ui/core/constant/image_constant.dart';
 import 'package:habit_builder_ui/core/view_model/base_view.dart';
 import 'package:habit_builder_ui/core/view_model/home_all_view_model/home_bottom_view_model.dart';
+import 'package:habit_builder_ui/ui/home_all_screen/home/home_tracking_habits.dart';
+import 'package:habit_builder_ui/ui/home_all_screen/setting/setting_screen.dart';
+import 'package:habit_builder_ui/ui/widget/bottom_bar.dart';
+import 'package:habit_builder_ui/ui/widget/tab_item.dart';
 
 class HomeBottom extends StatefulWidget {
   const HomeBottom({Key? key}) : super(key: key);
 
   @override
-  State<HomeBottom> createState() => _HomeBottomState();
+  State<HomeBottom> createState() => HomeBottomState();
 }
 
-class _HomeBottomState extends State<HomeBottom> {
+class HomeBottomState extends State<HomeBottom> {
   HomeTrackingHabitsViewModel? model;
+  static int currentTab = 0;
 
-  onItemTapped(int index) {
-    setState(() {
-      model!.selectedIndex = index;
+  final List<TabItem> tabs = [
+    TabItem(
+      tabName: "Home",
+      image: IconConstant.bottomHome,
+      page: const HomeTrackingHabits(),
+    ),
+    TabItem(
+      tabName: "Home",
+      image: IconConstant.bottomImage,
+      page: const HomeTrackingHabits(),
+    ),
+    TabItem(
+      tabName: "Home",
+      image: IconConstant.bottomImage3,
+      page: const HomeTrackingHabits(),
+    ),
+    TabItem(
+      tabName: "Setting",
+      image: IconConstant.bottomSetting,
+      page: const SettingScreen(),
+    ),
+  ];
+
+  HomeBottomState() {
+    tabs.asMap().forEach((index, details) {
+      details.setIndex(index);
     });
+  }
+
+  void _selectTab(int index) {
+    if (index == currentTab) {
+      tabs[index].key.currentState!.popUntil((route) => route.isFirst);
+    } else {
+      setState(() => currentTab = index);
+    }
   }
 
   @override
@@ -27,52 +60,15 @@ class _HomeBottomState extends State<HomeBottom> {
     return BaseView<HomeTrackingHabitsViewModel>(
       builder: (buildContext, model, child) {
         return Scaffold(
-          backgroundColor: const Color(0xFFFFE2C7),
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: const Color(0xFFFC9D45),
-            child: Padding(
-              padding: const EdgeInsets.all(19.0),
-              child: Image.asset(IconConstant.add),
-            ),
-            onPressed: () {},
+          extendBody: true,
+          body: IndexedStack(
+            index: currentTab,
+            children: tabs.map((e) => e.page).toList(),
           ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-          bottomNavigationBar: BottomAppBar(
-            shape: const CircularNotchedRectangle(),
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            notchMargin: 15,
-            child: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              showSelectedLabels: false,
-              elevation: 0,
-              iconSize: 20,
-              onTap: onItemTapped,
-              currentIndex: model.selectedIndex,
-              items: [
-                BottomNavigationBarItem(
-                    backgroundColor: Colors.transparent,
-                    label: '',
-                    icon: SizedBox(width: 50, height: 40, child: Image.asset(IconConstant.bottomHome))),
-                BottomNavigationBarItem(
-                    label: '',
-                    icon: Container(
-                        margin: const EdgeInsets.only(right: 45, top: 10),
-                        width: 50,
-                        height: 40,
-                        child: Image.asset(IconConstant.bottomImage))),
-                BottomNavigationBarItem(
-                    label: '',
-                    icon: Container(
-                        margin: const EdgeInsets.only(left: 45),
-                        width: 50,
-                        height: 40,
-                        child: Image.asset(IconConstant.bottomImage3))),
-                BottomNavigationBarItem(
-                    label: '', icon: SizedBox(width: 50, height: 40, child: Image.asset(IconConstant.bottomSetting))),
-              ],
-            ),
+          bottomNavigationBar: BottomNavigation(
+            onSelectTab: _selectTab,
+            tabs: tabs,
           ),
-          body: model.widgetOptions.elementAt(model.selectedIndex),
         );
       },
       onModelReady: (model) {

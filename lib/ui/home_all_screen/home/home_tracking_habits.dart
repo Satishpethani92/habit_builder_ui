@@ -5,7 +5,9 @@ import 'package:habit_builder_ui/core/constant/image_constant.dart';
 import 'package:habit_builder_ui/core/constant/text_style_constant.dart';
 import 'package:habit_builder_ui/core/model_class/home_screen_model.dart';
 import 'package:habit_builder_ui/core/view_model/base_view.dart';
-import 'package:habit_builder_ui/core/view_model/home_all_view_model/home_tracking_view_model.dart';
+import 'package:habit_builder_ui/core/view_model/home_all_view_model/home_view_model/home_tracking_view_model.dart';
+import 'package:habit_builder_ui/ui/home_all_screen/home/new_habits_screen/home_new_habits.dart';
+import 'package:habit_builder_ui/ui/widget/flotting_action.dart';
 
 class HomeTrackingHabits extends StatefulWidget {
   const HomeTrackingHabits({Key? key}) : super(key: key);
@@ -23,9 +25,33 @@ class _HomeTrackingHabitsState extends State<HomeTrackingHabits> {
       builder: (buildContext, model, child) {
         return Scaffold(
           backgroundColor: ColorConstant.logInBackGround,
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: Padding(
+            padding: const EdgeInsets.only(bottom: 73.0),
+            child: Stack(
+              children: [
+                SizedBox(width: 75, height: 75, child: Image.asset(IconConstant.floutingBack)),
+                Positioned(
+                  left: 10,
+                  top: 7.5,
+                  child: FloatingActionButton(
+                    backgroundColor: const Color(0xFFFC9D45),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeNewHabits()));
+                      // Navigator.pushNamed(context, Routes.homeNewHabits);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(19.0),
+                      child: Image.asset(IconConstant.add),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           body: Stack(
             children: [
-              Positioned(bottom: 0, child: Image.asset(ImageConstant.homeTrackingBackGround)),
+              Positioned(bottom: 28, child: Image.asset(ImageConstant.homeTrackingBackGround)),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +75,7 @@ class _HomeTrackingHabitsState extends State<HomeTrackingHabits> {
 
                   ///image and text
                   Container(
-                    margin: const EdgeInsets.only(right: 15, left: 15, top: 20),
+                    margin: const EdgeInsets.only(right: 15, left: 15, top: 13),
                     width: double.infinity,
                     height: MediaQuery.of(context).size.height * 0.16,
                     decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(17)),
@@ -91,7 +117,7 @@ class _HomeTrackingHabitsState extends State<HomeTrackingHabits> {
 
                   ///habits day&date
                   Container(
-                    margin: const EdgeInsets.only(top: 30, left: 35, bottom: 20),
+                    margin: const EdgeInsets.only(top: 20, left: 35, bottom: 20),
                     child: Row(
                       children: [
                         const Text(

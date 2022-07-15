@@ -15,4 +15,10 @@ class IconConstant {
   static const String bottomImage3 = 'assets/bottom_navigation_icon/bottom_i.png';
   static const String bottomSetting = 'assets/bottom_navigation_icon/setting.png';
   static const String add = 'assets/icon/add.png';
+  static const String trueImage = 'assets/icon/true.png';
+  static const String floutingBack = 'assets/icon/f_back.png';
+  static const String addHabits = 'assets/icon/add_habit.png';
+  static const String addIcon = 'assets/icon/img.png';
+  static const String newHabitFace = 'assets/icon/nhabit_avtar.png';
+  static const String downArrow = 'assets/icon/down_arrow.png';
 }
