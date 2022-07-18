@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:habit_builder_ui/core/constant/icon_constant.dart';
-import 'package:habit_builder_ui/ui/home_all_screen/home/new_habits_screen/home_new_habits.dart';
 
 flottingActionBtn({VoidCallback? onPressed}) {
   return Scaffold(

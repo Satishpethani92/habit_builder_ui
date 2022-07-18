@@ -6,11 +6,14 @@ introPageImage({String? text, String? image, VoidCallback? onPressed, bool? butt
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Text(text ?? '',
-          style: TextStyleConstant.introPagesStyleU,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          textAlign: TextAlign.center),
+      Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Text(text ?? '',
+            style: TextStyleConstant.introPagesStyleU,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center),
+      ),
       Container(
         margin: margin,
         child: Image.asset(image ?? ''),

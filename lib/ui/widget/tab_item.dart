@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_builder_ui/ui/home_all_screen/home_bottom.dart';
+import 'package:habit_builder_ui/ui/all_screen/home_bottom.dart';
 
 class TabItem {
   final String? tabName;

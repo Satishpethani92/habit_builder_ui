@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               Image.asset(ImageConstant.splashScreen, fit: BoxFit.cover),
               Padding(
-                  padding: const EdgeInsets.only(left: 70.0, right: 70.0, top: 150),
+                  padding: const EdgeInsets.only(left: 100.0, right: 70.0, top: 150),
                   child: Column(
                     children: const [
                       Text("WELCOME TO", style: TextStyleConstant.splashScreenStyle),

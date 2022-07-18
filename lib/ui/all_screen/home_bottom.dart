@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:habit_builder_ui/core/constant/icon_constant.dart';
+import 'package:habit_builder_ui/core/view_model/all_view_model/home_bottom_view_model.dart';
 import 'package:habit_builder_ui/core/view_model/base_view.dart';
-import 'package:habit_builder_ui/core/view_model/home_all_view_model/home_bottom_view_model.dart';
-import 'package:habit_builder_ui/ui/home_all_screen/home/home_tracking_habits.dart';
-import 'package:habit_builder_ui/ui/home_all_screen/setting/setting_screen.dart';
+import 'package:habit_builder_ui/ui/all_screen/home/tracking_habits_screen/home_tracking_habits.dart';
+import 'package:habit_builder_ui/ui/all_screen/setting/setting_screen.dart';
 import 'package:habit_builder_ui/ui/widget/bottom_bar.dart';
 import 'package:habit_builder_ui/ui/widget/tab_item.dart';
 
@@ -27,6 +27,11 @@ class HomeBottomState extends State<HomeBottom> {
     TabItem(
       tabName: "Home",
       image: IconConstant.bottomImage,
+      page: const HomeTrackingHabits(),
+    ),
+    TabItem(
+      tabName: "Home",
+      image: IconConstant.white,
       page: const HomeTrackingHabits(),
     ),
     TabItem(

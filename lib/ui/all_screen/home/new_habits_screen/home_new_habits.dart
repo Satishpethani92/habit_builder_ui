@@ -4,8 +4,8 @@ import 'package:habit_builder_ui/core/constant/color_constant.dart';
 import 'package:habit_builder_ui/core/constant/icon_constant.dart';
 import 'package:habit_builder_ui/core/constant/image_constant.dart';
 import 'package:habit_builder_ui/core/constant/text_style_constant.dart';
-import 'package:habit_builder_ui/core/model_class/continer_shape.dart';
-import 'package:habit_builder_ui/ui/home_all_screen/home/new_habits_screen/bottom_shit_reminder.dart';
+import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/bottom_shit_notification.dart';
+import 'package:habit_builder_ui/ui/widget/custom_container.dart';
 import 'package:habit_builder_ui/ui/widget/custom_text_field.dart';
 
 class HomeNewHabits extends StatefulWidget {
@@ -22,8 +22,8 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstant.logInBackGround,
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      /*floatingActionButton: Padding(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 73.0),
         child: Stack(
           children: [
@@ -42,7 +42,7 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
             ),
           ],
         ),
-      ),*/
+      ),
       body: Stack(
         children: [
           Positioned(bottom: 28, child: Image.asset(ImageConstant.homeTrackingBackGround)),
@@ -142,7 +142,7 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
                       children: [
                         customContainer(text: "SUN"),
                         customContainerHalf(text: "MON"),
-                        customContainerHalf(text: "THUE"),
+                        customContainerHalf(text: "TUE"),
                         customContainer(text: "WED"),
                         customContainerHalf(text: "THU"),
                         customContainer(text: "FRI"),
@@ -164,7 +164,8 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
                 ),
                 child: InkWell(
                   onTap: () {
-                    _show(context);
+                    notificationBottomShit(context);
+                    // reminderBottomShit(context);
                   },
                   child: Row(
                     children: [
@@ -197,36 +198,45 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
                   borderRadius: BorderRadius.circular(12),
                   color: Colors.white,
                 ),
-                child: Row(
-                  children: [
-                    const Text(
-                      "Notification",
-                      style: TextStyle(color: Color(0xFF573353), fontSize: 19),
-                    ),
-                    const Spacer(),
-                    Container(
-                      margin: const EdgeInsets.only(right: 10),
-                      width: 55,
-                      height: 29,
-                      child: FlutterSwitch(
-                        // showOnOff: true,
-                        toggleColor: const Color(0xFF573353),
-                        value: status!,
-                        onToggle: (value) {
-                          setState(() {
-                            status = value;
-                          });
-                        },
-                        activeColor: ColorConstant.logInBackGround,
-                        inactiveColor: ColorConstant.logInBackGround,
+                child: InkWell(
+                  onTap: () {
+                    // notificationBottomShit(context);
+                  },
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Notification",
+                        style: TextStyle(color: Color(0xFF573353), fontSize: 19),
                       ),
-                    ),
-                  ],
+                      const Spacer(),
+                      Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        width: 60,
+                        height: 29,
+                        child: FlutterSwitch(
+                          activeColor: const Color(0xFF573353).withOpacity(0.1),
+                          activeTextColor: const Color(0xFF573353).withOpacity(0.6),
+                          activeText: 'on',
+                          inactiveColor: const Color(0xFF573353).withOpacity(0.1),
+                          inactiveTextColor: const Color(0xFF573353).withOpacity(0.6),
+                          inactiveText: 'off',
+                          showOnOff: true,
+                          toggleColor: const Color(0xFF573353),
+                          value: status!,
+                          onToggle: (value) {
+                            setState(() {
+                              status = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
 
               ///last pop-up
-              SizedBox(height: MediaQuery.of(context).size.height * 0.12),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.11),
               Stack(
                 clipBehavior: Clip.none,
                 alignment: AlignmentDirectional.topCenter,
@@ -274,72 +284,4 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
       ),
     );
   }
-}
-
-Widget customContainer({String? text}) {
-  return Column(
-    children: [
-      Text(text!),
-      Container(
-        margin: const EdgeInsets.only(left: 10, right: 5, bottom: 5, top: 5),
-        height: 40,
-        width: 40,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(13), color: ColorConstant.logInBackGround),
-        child: Container(
-            margin: const EdgeInsets.all(3),
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(13), color: const Color(0xFFFC9D45))),
-      ),
-    ],
-  );
-}
-
-Widget customContainerHalf({String? text}) {
-  return Stack(
-    alignment: Alignment.centerRight,
-    children: [
-      Column(
-        children: [
-          Text(text!),
-          Container(
-            margin: const EdgeInsets.only(left: 10, bottom: 5, top: 5),
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(13), color: ColorConstant.logInBackGround),
-          ),
-        ],
-      ),
-      Positioned(
-        left: 12,
-        top: 23,
-        child: ClipPath(
-          clipper: ContinerShape(),
-          child: Container(
-              margin: const EdgeInsets.all(3),
-              width: 65,
-              height: 44,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(13),
-                      topLeft: Radius.circular(13),
-                      bottomRight: Radius.circular(5),
-                      bottomLeft: Radius.circular(5)),
-                  color: Color(0xFFFC9D45))),
-        ),
-      )
-    ],
-  );
-}
-
-void _show(BuildContext ctx) {
-  showModalBottomSheet(
-      elevation: 10,
-      backgroundColor: Colors.amber,
-      context: ctx,
-      builder: (ctx) => Container(
-            width: 300,
-            height: 250,
-            color: Colors.white54,
-            alignment: Alignment.center,
-            child: const Text('Breathe in... Breathe out...'),
-          ));
 }

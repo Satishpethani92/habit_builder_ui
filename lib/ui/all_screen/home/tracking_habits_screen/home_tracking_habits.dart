@@ -4,10 +4,9 @@ import 'package:habit_builder_ui/core/constant/icon_constant.dart';
 import 'package:habit_builder_ui/core/constant/image_constant.dart';
 import 'package:habit_builder_ui/core/constant/text_style_constant.dart';
 import 'package:habit_builder_ui/core/model_class/home_screen_model.dart';
+import 'package:habit_builder_ui/core/view_model/all_view_model/home_view_model/home_tracking_view_model.dart';
 import 'package:habit_builder_ui/core/view_model/base_view.dart';
-import 'package:habit_builder_ui/core/view_model/home_all_view_model/home_view_model/home_tracking_view_model.dart';
-import 'package:habit_builder_ui/ui/home_all_screen/home/new_habits_screen/home_new_habits.dart';
-import 'package:habit_builder_ui/ui/widget/flotting_action.dart';
+import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/home_new_habits.dart';
 
 class HomeTrackingHabits extends StatefulWidget {
   const HomeTrackingHabits({Key? key}) : super(key: key);

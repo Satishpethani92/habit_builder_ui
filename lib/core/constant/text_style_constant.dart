@@ -28,4 +28,6 @@ class TextStyleConstant {
       TextStyle(fontSize: 20, color: Color(0xFF573353), fontWeight: FontWeight.w800);
   static const TextStyle newHabitContainerD =
       TextStyle(fontSize: 14, color: Color(0xFF573353), fontWeight: FontWeight.w300);
+  static const TextStyle reminderTextStyle =
+      TextStyle(fontSize: 21, color: Color(0xFF573353), fontWeight: FontWeight.w600);
 }

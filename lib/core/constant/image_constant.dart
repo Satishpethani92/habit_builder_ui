@@ -10,4 +10,5 @@ class ImageConstant {
   //home
   static const String homeTrackingBackGround = 'assets/images/home_bottom.png';
   static const String homePost = 'assets/images/home_post.png';
+  static const String settingImage = 'assets/images/setting_img.png';
 }
