@@ -45,7 +45,7 @@ notificationBottomSheet(BuildContext context) {
                                   color: dateTime.elementAt(index).isSelected!
                                       ? const Color(0xFFFDA758)
                                       : const Color(0xFF573353),
-                                  fontSize: 25,
+                                  fontSize: 22,
                                   fontWeight: FontWeight.w700),
                             ),
                             SizedBox(

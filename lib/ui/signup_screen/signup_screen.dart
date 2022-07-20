@@ -155,7 +155,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: const EdgeInsets.only(top: 40.0),
                 child: RichText(
                     text: const TextSpan(
                         text: "Already have an account?",

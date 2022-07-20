@@ -1,12 +1,14 @@
+import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/bottom_sheet_reminder.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:habit_builder_ui/core/constant/color_constant.dart';
-import 'package:habit_builder_ui/core/constant/icon_constant.dart';
-import 'package:habit_builder_ui/core/constant/image_constant.dart';
-import 'package:habit_builder_ui/core/constant/text_style_constant.dart';
-import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/bottom_sheet_notification.dart';
 import 'package:habit_builder_ui/ui/widget/custom_container.dart';
 import 'package:habit_builder_ui/ui/widget/custom_text_field.dart';
+import 'package:habit_builder_ui/core/constant/icon_constant.dart';
+import 'package:habit_builder_ui/core/constant/image_constant.dart';
+import 'package:habit_builder_ui/core/constant/color_constant.dart';
+import 'package:habit_builder_ui/core/constant/text_style_constant.dart';
+import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/bottom_sheet_notification.dart';
 
 class HomeNewHabits extends StatefulWidget {
   const HomeNewHabits({Key? key}) : super(key: key);
@@ -33,10 +35,7 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
               top: 7.5,
               child: FloatingActionButton(
                 backgroundColor: const Color(0xFFFC9D45),
-                onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeNewHabits()));
-                  // Navigator.pushNamed(context, Routes.homeNewHabits);
-                },
+                onPressed: () {},
                 child: Image.asset(IconConstant.trueImage),
               ),
             ),
@@ -141,10 +140,10 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         customContainer(text: "SUN"),
-                        customContainerHalf(text: "MON"),
-                        customContainerHalf(text: "TUE"),
+                        customContainerHalf(text: "MON", margin: EdgeInsets.zero),
+                        customContainerHalf(text: "TUE", margin: EdgeInsets.zero),
                         customContainer(text: "WED"),
-                        customContainerHalf(text: "THU"),
+                        customContainerHalf(text: "THU", margin: EdgeInsets.zero),
                         customContainer(text: "FRI"),
                         customContainer(text: "SAT"),
                       ],
@@ -165,7 +164,6 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
                 child: InkWell(
                   onTap: () {
                     notificationBottomSheet(context);
-                    // reminderBottomShit(context);
                   },
                   child: Row(
                     children: [
@@ -174,12 +172,27 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
                         style: TextStyle(color: Color(0xFF573353), fontSize: 19),
                       ),
                       const Spacer(),
-                      const Text("10:00 AM",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18,
-                            color: Color(0xFFFDA758),
-                          )),
+                      Expanded(
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemCount: dateTime.length,
+                          itemBuilder: (context, index) {
+                            return Row(
+                              children: [
+                                Text(
+                                  DateFormat('hh:mm a').format(dateTime[index].time!),
+                                  style: const TextStyle(
+                                      color: Color(0xFFFC9D45), fontWeight: FontWeight.w500, fontSize: 19),
+                                ),
+                                const Text(', ',
+                                    style:
+                                        TextStyle(color: Color(0xFFFC9D45), fontWeight: FontWeight.w800, fontSize: 19)),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
                       Icon(
                         Icons.arrow_forward_ios,
                         color: const Color(0xFFFDA758).withOpacity(0.8),

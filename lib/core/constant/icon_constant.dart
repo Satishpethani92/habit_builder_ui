@@ -19,7 +19,7 @@ class IconConstant {
   static const String trueImage = 'assets/icon/true.png';
   static const String floutingBack = 'assets/icon/f_back.png';
   static const String addHabits = 'assets/icon/add_habit.png';
-  static const String addIcon = 'assets/icon/img.png';
+  static const String addIcon = 'assets/icon/add_habit_add.png';
   static const String newHabitFace = 'assets/icon/nhabit_avtar.png';
   static const String downArrow = 'assets/icon/down_arrow.png';
   static const String reminderIcon = 'assets/icon/reminder_icon.png';
@@ -35,4 +35,16 @@ class IconConstant {
   static const String analytics_2 = 'assets/icon/analytics_2.png';
   static const String analytics_3 = 'assets/icon/analytics_3.png';
   static const String analytics_4 = 'assets/icon/analytics_4.png';
+
+  //setting
+  static const String setting_1 = 'assets/settings/setting_1.png';
+  static const String setting_2 = 'assets/settings/setting_2.png';
+  static const String backside = 'assets/settings/background.png';
+  static const String call = 'assets/settings/call.png';
+  static const String meassge = 'assets/settings/meassge.png';
+  static const String policy = 'assets/settings/policy.png';
+  static const String about = 'assets/settings/about.png';
+  static const String payment = 'assets/settings/payment.png';
+  static const String streak = 'assets/settings/streak.png';
+  static const String profile_1 = 'assets/settings/profile_img.png';
 }

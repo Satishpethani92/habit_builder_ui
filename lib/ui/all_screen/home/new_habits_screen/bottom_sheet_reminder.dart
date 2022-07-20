@@ -44,7 +44,10 @@ reminderBottomSheet(BuildContext context) {
                       ),
                       InkWell(
                           onTap: () {
-                            dateTime.add(TimeDate(time: time, isSelected: true));
+                            int value = dateTime.indexWhere((element) => element.time == time);
+                            if (value == -1) {
+                              dateTime.add(TimeDate(time: time, isSelected: true));
+                            }
                             setState(() {});
                             Navigator.pop(context);
                             notificationBottomSheet(context);
@@ -57,7 +60,6 @@ reminderBottomSheet(BuildContext context) {
                   color: Colors.orangeAccent.shade100,
                 ),
                 SizedBox(
-                  width: 300,
                   height: 264,
                   child: CupertinoDatePicker(
                     use24hFormat: false,

@@ -4,7 +4,7 @@ class TextStyleConstant {
   static const TextStyle splashScreenStyle =
       TextStyle(fontSize: 32, color: Color(0xFF573353), fontWeight: FontWeight.bold);
   static const TextStyle introPagesStyleU =
-      TextStyle(fontSize: 30, color: Color(0xFF573353), fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 25, color: Color(0xFF573353), fontWeight: FontWeight.bold);
   static const TextStyle introPagesStyleD =
       TextStyle(fontSize: 20, color: Color(0xFF573353), fontWeight: FontWeight.bold);
   static const TextStyle introPagesStyleRichTExtD =

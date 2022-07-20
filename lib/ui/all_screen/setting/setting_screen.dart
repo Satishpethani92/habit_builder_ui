@@ -47,6 +47,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
           ),
           body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10.0, right: 18, top: 45),
@@ -61,46 +62,97 @@ class _SettingScreenState extends State<SettingScreen> {
                   ],
                 ),
               ),
-              Container(
-                  margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
-                  height: MediaQuery.of(context).size.height * 0.16,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.white,
-                  ),
-                  child: Row(children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Check Your Profile",
-                            style: TextStyle(color: Color(0xFF573353), fontWeight: FontWeight.w600, fontSize: 22),
+              Expanded(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                          margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
+                          height: MediaQuery.of(context).size.height * 0.16,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.white,
                           ),
-                          const SizedBox(height: 3),
-                          const Text(
-                            "jonathansmith@gmail.com",
-                            style: TextStyle(color: Color(0xFF573353), fontWeight: FontWeight.w300, fontSize: 15),
-                          ),
-                          const SizedBox(height: 11),
-                          customBtn(
-                            padding: const EdgeInsets.all(4),
-                            height: 50,
-                            width: 100,
-                            text: 'View',
-                            onPressed: () {},
-                          )
-                        ],
+                          child: Row(children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 25.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    "Check Your Profile",
+                                    style:
+                                        TextStyle(color: Color(0xFF573353), fontWeight: FontWeight.w600, fontSize: 22),
+                                  ),
+                                  const SizedBox(height: 3),
+                                  const Text(
+                                    "jonathansmith@gmail.com",
+                                    style:
+                                        TextStyle(color: Color(0xFF573353), fontWeight: FontWeight.w300, fontSize: 15),
+                                  ),
+                                  const SizedBox(height: 11),
+                                  customBtn(
+                                    padding: const EdgeInsets.all(4),
+                                    height: 50,
+                                    width: 100,
+                                    text: 'View',
+                                    onPressed: () {},
+                                  )
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+                            ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                    bottomRight: Radius.circular(15), topRight: Radius.circular(15)),
+                                child: Image.asset(ImageConstant.settingImage)),
+                          ])),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 18.0, top: 15),
+                        child: Text(
+                          'General',
+                          style: TextStyle(color: Color(0xFF573353), fontSize: 19, fontWeight: FontWeight.w500),
+                        ),
                       ),
-                    ),
-                    const Spacer(),
-                    ClipRRect(
-                        borderRadius:
-                            const BorderRadius.only(bottomRight: Radius.circular(15), topRight: Radius.circular(15)),
-                        child: Image.asset(ImageConstant.settingImage)),
-                  ]))
+                      generalRow(
+                          height: MediaQuery.of(context).size.height * 0.10,
+                          image: IconConstant.setting_1,
+                          text: 'Notifications',
+                          textD: 'Customize notifications'),
+                      generalRow(
+                          height: MediaQuery.of(context).size.height * 0.10,
+                          image: IconConstant.setting_2,
+                          text: 'More customization',
+                          textD: 'Customize it more to fit your\nusage'),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 18.0, top: 15),
+                        child: Text(
+                          'Support',
+                          style: TextStyle(color: Color(0xFF573353), fontSize: 19, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      supportRow(
+                          height: MediaQuery.of(context).size.height * 0.072,
+                          image: IconConstant.call,
+                          text: 'Contact'),
+                      supportRow(
+                          height: MediaQuery.of(context).size.height * 0.072,
+                          image: IconConstant.meassge,
+                          text: 'Feedback'),
+                      supportRow(
+                          height: MediaQuery.of(context).size.height * 0.072,
+                          image: IconConstant.policy,
+                          text: 'Privacy Policy'),
+                      supportRow(
+                          height: MediaQuery.of(context).size.height * 0.072, image: IconConstant.about, text: 'About'),
+                      SizedBox(height: MediaQuery.of(context).size.height * 0.18)
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         );
@@ -110,4 +162,62 @@ class _SettingScreenState extends State<SettingScreen> {
       },
     );
   }
+}
+
+Widget generalRow({double? height, double? iconHeight, double? iconWidth, String? text, String? textD, String? image}) {
+  return Container(
+    margin: const EdgeInsets.only(top: 10, left: 18, right: 18),
+    height: height,
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Colors.white),
+    child: Row(
+      children: [
+        Container(
+            margin: const EdgeInsets.only(left: 10, right: 20), height: 56, width: 56, child: Image.asset(image ?? '')),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(text ?? '',
+                style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18, color: Color(0xFF573353))),
+            const SizedBox(height: 4),
+            Text(textD ?? '',
+                style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 16, color: Color(0xFF573353))),
+          ],
+        ),
+        const Spacer(),
+        const Padding(
+          padding: EdgeInsets.only(right: 15),
+          child: Icon(Icons.arrow_forward_ios, color: Color(0xFF573353), size: 20),
+        )
+      ],
+    ),
+  );
+}
+
+Widget supportRow({double? height, String? image, String? text}) {
+  return Container(
+    margin: const EdgeInsets.only(top: 10, left: 18, right: 18),
+    height: height,
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Colors.white),
+    child: Row(
+      children: [
+        Stack(
+          children: [
+            Container(
+                margin: const EdgeInsets.only(left: 10, right: 20),
+                height: 46,
+                width: 46,
+                child: Image.asset(IconConstant.backside)),
+            Positioned(top: 10, left: 20, child: SizedBox(height: 24, width: 24, child: Image.asset(image ?? ''))),
+          ],
+        ),
+        Text(text ?? '', style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18, color: Color(0xFF573353))),
+        const Spacer(),
+        const Padding(
+          padding: EdgeInsets.only(right: 15),
+          child: Icon(Icons.arrow_forward_ios, color: Color(0xFF573353), size: 20),
+        )
+      ],
+    ),
+  );
 }
