@@ -4,7 +4,7 @@ import 'package:habit_builder_ui/core/constant/color_constant.dart';
 import 'package:habit_builder_ui/core/constant/icon_constant.dart';
 import 'package:habit_builder_ui/core/constant/image_constant.dart';
 import 'package:habit_builder_ui/core/constant/text_style_constant.dart';
-import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/bottom_shit_notification.dart';
+import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/bottom_sheet_notification.dart';
 import 'package:habit_builder_ui/ui/widget/custom_container.dart';
 import 'package:habit_builder_ui/ui/widget/custom_text_field.dart';
 
@@ -164,7 +164,7 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
                 ),
                 child: InkWell(
                   onTap: () {
-                    notificationBottomShit(context);
+                    notificationBottomSheet(context);
                     // reminderBottomShit(context);
                   },
                   child: Row(

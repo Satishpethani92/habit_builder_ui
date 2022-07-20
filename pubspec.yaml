@@ -39,6 +39,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   flutter_switch: ^0.3.2
   intl: ^0.17.0
+  syncfusion_flutter_calendar: ^20.2.39
 
 dev_dependencies:
   flutter_test:

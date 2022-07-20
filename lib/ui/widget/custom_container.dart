@@ -34,13 +34,13 @@ Widget customContainerHalf({String? text}) {
         ],
       ),
       Transform.rotate(
-          angle: -math.pi / 2,
+          angle: -math.pi / 2.1,
           child: ClipPath(
               clipper: ContinerShape(),
               child: Container(
                   margin: const EdgeInsets.all(3),
                   width: 65,
-                  height: 44,
+                  height: 41,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(13),

@@ -53,23 +53,22 @@ class _SettingScreenState extends State<SettingScreen> {
                 child: Row(
                   children: [
                     SizedBox(height: 70, width: 70, child: Image.asset(IconConstant.homeIcon1)),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.18),
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.23),
                     const Text(
-                      "Setting",
+                      "Settings",
                       style: TextStyle(color: Color(0xFF573353), fontSize: 20, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
-                height: MediaQuery.of(context).size.height * 0.16,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.white,
-                ),
-                child: Row(
-                  children: [
+                  margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
+                  height: MediaQuery.of(context).size.height * 0.16,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.white,
+                  ),
+                  child: Row(children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 25.0),
                       child: Column(
@@ -101,9 +100,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         borderRadius:
                             const BorderRadius.only(bottomRight: Radius.circular(15), topRight: Radius.circular(15)),
                         child: Image.asset(ImageConstant.settingImage)),
-                  ],
-                ),
-              )
+                  ]))
             ],
           ),
         );

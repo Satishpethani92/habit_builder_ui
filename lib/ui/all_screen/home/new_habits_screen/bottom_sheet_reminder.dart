@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:habit_builder_ui/core/model_class/time_date.dart';
 import 'package:habit_builder_ui/core/constant/text_style_constant.dart';
-import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/bottom_shit_notification.dart';
+import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/bottom_sheet_notification.dart';
 
 DateTime time = DateTime.now();
 List<TimeDate> dateTime = [];
 bool isSelected = true;
 
-reminderBottomShit(BuildContext context) {
+reminderBottomSheet(BuildContext context) {
   showModalBottomSheet(
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
@@ -47,7 +47,7 @@ reminderBottomShit(BuildContext context) {
                             dateTime.add(TimeDate(time: time, isSelected: true));
                             setState(() {});
                             Navigator.pop(context);
-                            notificationBottomShit(context);
+                            notificationBottomSheet(context);
                           },
                           child: const Text("Save", style: TextStyle(color: Color(0xFFFC9D45), fontSize: 19)))
                     ],

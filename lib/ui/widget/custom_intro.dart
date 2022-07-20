@@ -7,7 +7,7 @@ introPageImage({String? text, String? image, VoidCallback? onPressed, bool? butt
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.only(left: 50.0, right: 50),
         child: Text(text ?? '',
             style: TextStyleConstant.introPagesStyleU,
             maxLines: 2,

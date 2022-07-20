@@ -7,6 +7,7 @@ import 'package:habit_builder_ui/core/model_class/home_screen_model.dart';
 import 'package:habit_builder_ui/core/view_model/all_view_model/home_view_model/home_tracking_view_model.dart';
 import 'package:habit_builder_ui/core/view_model/base_view.dart';
 import 'package:habit_builder_ui/ui/all_screen/home/new_habits_screen/home_new_habits.dart';
+import 'package:habit_builder_ui/ui/all_screen/home/tracking_habits_screen/habit_event_screen.dart';
 
 class HomeTrackingHabits extends StatefulWidget {
   const HomeTrackingHabits({Key? key}) : super(key: key);
@@ -141,6 +142,14 @@ class _HomeTrackingHabitsState extends State<HomeTrackingHabits> {
 
                   /// 4 row
                   coustomRow(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HabitsEvent(),
+                            ));
+                        // Navigator.pushNamed(context, Routes.habitsEvent);
+                      },
                       title: 'Read A Book',
                       height: MediaQuery.of(context).size.height * 0.08,
                       color: ColorConstant.orangeContainer),
@@ -185,7 +194,7 @@ Widget dateContainer({String? dayText, String? dText}) {
   );
 }
 
-Widget coustomRow({String? title, double? height, Color? color}) {
+Widget coustomRow({String? title, double? height, Color? color, GestureTapCallback? onTap}) {
   return Column(
     children: [
       Container(
@@ -200,9 +209,12 @@ Widget coustomRow({String? title, double? height, Color? color}) {
             children: [
               SizedBox(
                 width: 115,
-                child: Text(
-                  title ?? '',
-                  style: TextStyleConstant.homeFourRow,
+                child: InkWell(
+                  onTap: onTap,
+                  child: Text(
+                    title ?? '',
+                    style: TextStyleConstant.homeFourRow,
+                  ),
                 ),
               ),
               VerticalDivider(

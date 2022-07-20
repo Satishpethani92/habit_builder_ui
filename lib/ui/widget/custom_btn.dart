@@ -8,7 +8,8 @@ customBtn(
     EdgeInsetsGeometry? margin,
     EdgeInsetsGeometry? padding,
     double? width,
-    double? height}) {
+    double? height,
+    Color? primary}) {
   return Container(
       padding: padding,
       margin: margin,
@@ -16,7 +17,7 @@ customBtn(
       width: width ?? double.infinity,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              primary: ColorConstant.buttonColor,
+              primary: primary ?? ColorConstant.buttonColor,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
           onPressed: onPressed,
           child: Text(

@@ -31,9 +31,7 @@ class _IntroductionScreenViewState extends State<IntroductionScreenView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
             child: SafeArea(

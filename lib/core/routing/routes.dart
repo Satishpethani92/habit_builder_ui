@@ -8,4 +8,5 @@ class Routes {
   static const String homeBottom = 'HomeBottom';
   static const String homeTrackingHabits = 'HomeTrackingHabitsScreen';
   static const String homeNewHabits = 'HomeNewHabitsScreen';
+  static const String habitsEvent = 'HabitEventScreen';
 }

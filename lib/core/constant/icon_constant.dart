@@ -23,4 +23,16 @@ class IconConstant {
   static const String newHabitFace = 'assets/icon/nhabit_avtar.png';
   static const String downArrow = 'assets/icon/down_arrow.png';
   static const String reminderIcon = 'assets/icon/reminder_icon.png';
+  static const String habitImage = 'assets/icon/habit_image.png';
+  //
+  static const String habitBackground = 'assets/icon/h_e_back.png';
+  static const String habitBackgroundImage = 'assets/icon/h_e_image.png';
+  //
+  static const String alert = 'assets/icon/alert.png';
+  static const String repet = 'assets/icon/repet.png';
+  //
+  static const String analytics_1 = 'assets/icon/analytics_1.png';
+  static const String analytics_2 = 'assets/icon/analytics_2.png';
+  static const String analytics_3 = 'assets/icon/analytics_3.png';
+  static const String analytics_4 = 'assets/icon/analytics_4.png';
 }
