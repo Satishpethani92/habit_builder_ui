@@ -92,7 +92,7 @@ class _SignupAndLoginScreenState extends State<SignupAndLoginScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.031),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.029),
                   Container(
                     width: double.infinity,
                     height: MediaQuery.of(context).size.height * 0.39,

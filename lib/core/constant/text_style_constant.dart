@@ -11,7 +11,7 @@ class TextStyleConstant {
       TextStyle(fontSize: 20, color: Color(0xFFFC9D45), fontWeight: FontWeight.bold);
   static const TextStyle allButtonTextStyle =
       TextStyle(fontSize: 17, color: Color(0xFF573353), fontWeight: FontWeight.w600);
-  static const TextStyle loginText = TextStyle(fontSize: 25, color: Color(0xFF573353), fontWeight: FontWeight.bold);
+  static const TextStyle loginText = TextStyle(fontSize: 28, color: Color(0xFF573353), fontWeight: FontWeight.bold);
   static const TextStyle loginGoogleText =
       TextStyle(fontSize: 16, color: Color(0xFF573353), fontWeight: FontWeight.w500);
   static const TextStyle loginFBText = TextStyle(fontSize: 16, color: Color(0xFF573353), fontWeight: FontWeight.w500);

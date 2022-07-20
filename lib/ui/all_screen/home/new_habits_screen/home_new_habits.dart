@@ -182,6 +182,7 @@ class _HomeNewHabitsState extends State<HomeNewHabits> {
                               children: [
                                 Text(
                                   DateFormat('hh:mm a').format(dateTime[index].time!),
+                                  /*${(index != dateTime[index].time!.length - 1 ? ", " : "")}*/
                                   style: const TextStyle(
                                       color: Color(0xFFFC9D45), fontWeight: FontWeight.w500, fontSize: 19),
                                 ),

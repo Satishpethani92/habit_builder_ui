@@ -21,7 +21,7 @@ class ContinerShapee extends CustomClipper<Path> {
   Path getClip(Size size) {
     final path = Path()
       ..lineTo(size.width / 1.1, 3.0)
-      ..lineTo(7, size.height / 1.3)
+      ..lineTo(6, size.height / 1.25)
       ..close();
     return path;
   }
