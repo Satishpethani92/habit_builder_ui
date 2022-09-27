@@ -1,8 +1,12 @@
+import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:after_layout/after_layout.dart';
 import 'package:habit_builder_ui/core/constant/image_constant.dart';
 import 'package:habit_builder_ui/core/routing/routes.dart';
 import 'package:habit_builder_ui/ui/widget/custom_intro.dart';
 import 'package:habit_builder_ui/ui/widget/skip_next_btn.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class IntroductionScreenView extends StatefulWidget {
@@ -18,6 +22,8 @@ class _IntroductionScreenViewState extends State<IntroductionScreenView> {
 
   @override
   void initState() {
+    super.initState();
+    checkFirstScreen();
     pageController.addListener(
       () {
         setState(() {
@@ -25,7 +31,21 @@ class _IntroductionScreenViewState extends State<IntroductionScreenView> {
         });
       },
     );
-    super.initState();
+  }
+
+  Future checkFirstScreen() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    bool firstSeen = (pref.getBool("seen") ?? false);
+    print(firstSeen);
+    if (firstSeen) {
+      Navigator.pushNamed(context, Routes.signupAndLoginScreen);
+    } else {
+      await pref.setBool("seen", true);
+      if (kDebugMode) {
+        print(pref.getBool("seen"));
+      }
+      Navigator.pushNamed(context, Routes.introductionScreen);
+    }
   }
 
   @override
@@ -42,21 +62,32 @@ class _IntroductionScreenViewState extends State<IntroductionScreenView> {
                   introPageImage(
                       text: 'CREATE NEW HABIT EASILY',
                       image: ImageConstant.introductionI2,
-                      margin: const EdgeInsets.only(top: 55, bottom: 55)),
+                      margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.05,
+                          bottom: MediaQuery.of(context).size.height * 0.05)),
                   introPageImage(
                       text: 'KEEP TRACK OF YOUR PROGRESS',
                       image: ImageConstant.introductionI3,
-                      margin: const EdgeInsets.only(top: 55, bottom: 55)),
-                  introPageImage(
-                    text: 'JOIN A SUPPORTIVE COMMUNITY',
-                    image: ImageConstant.introductionI4,
-                    margin: const EdgeInsets.only(top: 20, bottom: 100),
-                    buttonShow: true,
-                    onPressed: () {
-                      // Navigator.pushNamed(context, Routes.signupAndLoginScreen);
-                      Navigator.pushNamedAndRemoveUntil(context, Routes.signupAndLoginScreen, (route) => false);
-                    },
-                  ),
+                      margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.05,
+                          bottom: MediaQuery.of(context).size.height * 0.05)),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      introPageImage(
+                        text: 'JOIN A SUPPORTIVE COMMUNITY',
+                        image: ImageConstant.introductionI4,
+                        margin: EdgeInsets.only(
+                            top: MediaQuery.of(context).size.height * 0.060,
+                            bottom: MediaQuery.of(context).size.height * 0.124),
+                        buttonShow: true,
+                        onPressed: () {
+                          // Navigator.pushNamed(context, Routes.signupAndLoginScreen);
+                          Navigator.pushNamedAndRemoveUntil(context, Routes.signupAndLoginScreen, (route) => false);
+                        },
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -98,7 +129,7 @@ class _IntroductionScreenViewState extends State<IntroductionScreenView> {
                     }
                   }),
             ],
-          )
+          ),
         ],
       ),
     );

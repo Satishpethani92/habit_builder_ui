@@ -20,8 +20,5 @@ customBtn(
               primary: primary ?? ColorConstant.buttonColor,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
           onPressed: onPressed,
-          child: Text(
-            text ?? '',
-            style: TextStyleConstant.allButtonTextStyle,
-          )));
+          child: Text(text ?? '', style: TextStyleConstant.allButtonTextStyle)));
 }
